@@ -1,0 +1,45 @@
+.partners {
+
+    @apply
+    rounded-primary
+    bg-white;
+ 
+    &__container {
+        margin: 0 auto;
+        max-width: 1680px;
+        @apply
+        px-5 py-8
+        items-center
+        justify-between
+        max-lg:flex-col
+        gap-x-32
+        flex;
+    }
+
+    &__image {
+        @apply
+            h-52
+            max-lg:h-32
+            relative
+            w-full
+        ;
+        
+        &_image {
+            @apply
+            object-contain
+            py-8
+            saturate-0
+            max-lg:saturate-100
+            duration-200
+            ease-in-out
+            hover:saturate-100;
+            ;
+        }
+    }
+
+    &__image:not(:last-child) {
+        @apply
+        pr-14
+        max-lg:pr-0
+    }
+}

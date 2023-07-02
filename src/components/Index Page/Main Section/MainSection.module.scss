@@ -1,0 +1,88 @@
+.main {
+    background: url('../../../../public/Main Section BG.jpg');
+    background-size: cover;
+    background-position:70%;
+    border-radius: 50px;
+    @media(max-width: 1023px) {
+        background: url('../../../../public/Main Section 2.jpg');
+        background-size: cover;
+        background-position: bottom;
+    }
+   
+    @apply
+    rounded-primary
+    bg-white;
+ 
+    &__container {
+        margin: 0 auto;
+        max-width: 1680px;
+        @apply
+        px-5
+        items-center
+        justify-between
+        h-full
+        flex;
+    }
+    &__offer{
+        @apply 
+        2xl:block
+        xl:block
+        max-lg:flex
+        max-lg:flex-col
+        max-lg:items-center
+        max-lg:text-center
+        w-full
+        pt-40 pb-64
+        max-lg:pt-20;
+        &_title {
+            @apply 
+            font-extrabold
+            w-[55%]
+            max-lg:w-full
+            max-lg:text-5xl
+            text-6xl
+            mb-10;
+        }
+        &_description {
+            font-family: Inter;
+            @apply 
+            text-slate-400
+            font-medium
+            italic
+            2xl:w-[40%]
+            xl:w-[40%]
+            lg:w-[40%]
+            md:w-full
+            text-xl
+            mb-10
+            ;
+        }
+        &_link {
+            @apply
+            flex items-center
+            bg-black
+            py-4 px-10
+            w-fit
+            rounded-xl
+            text-white
+            ease-in-out
+            duration-200
+            hover:bg-white
+            hover:text-black
+            ;
+            &_icon {
+                @apply
+                ml-3
+                duration-75
+                ease-in-out
+            }
+        }
+        &_link:hover .main__offer_link_icon{
+                @apply
+                translate-x-1
+                duration-75
+                ease-in-out
+                ;
+        }
+    }
+}

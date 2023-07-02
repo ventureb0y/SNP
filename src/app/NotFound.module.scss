@@ -1,0 +1,48 @@
+.nf {
+
+    background-image: url('@/../../../public/Catalog\ BG.jpg');
+    background-position: center;
+    background-size: cover;
+
+
+    &__container {
+        margin: 0 auto;
+        max-width: 1680px;
+        @apply
+        px-5 py-32
+        items-center
+        h-full
+        flex flex-col;
+    }
+
+    &__404 {
+        @apply
+        font-bold
+        text-[200px];
+    }
+
+    &__text {
+        @apply
+        font-medium
+        -mt-8 mb-8
+        text-xl;
+    }
+
+    &__link {
+        @apply
+        bg-black
+        py-4 px-10
+        w-fit
+        rounded-full
+        text-white
+        ease-in-out
+        duration-200
+        max-sm:w-full
+        hover:bg-white
+        hover:text-black;
+    }
+    &__link:not(:last-child)  {
+        @apply
+        mr-2;
+    }
+}

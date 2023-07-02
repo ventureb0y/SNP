@@ -1,0 +1,63 @@
+.footer {
+        @apply
+        w-full
+        text-white
+        rounded-primary
+        bg-black;
+    
+        &__container {
+            margin: 0 auto;
+            max-width: 1680px;
+            @apply
+            px-5 py-10
+            grid grid-cols-3 grid-rows-[1fr_min]    
+            max-lg:grid-cols-2
+            max-sm:grid-cols-1
+            max-sm:grid-rows-[1fr_1fr_min]
+            max-sm:py-6
+            ;
+        }
+
+        &__menu {
+            @apply
+            row-span-1
+            col-span-1
+            max-lg:mb-24
+            max-md:mb-16
+            max-sm:text-center
+            max-sm:mb-6
+            mb-32;
+
+            &_link {
+                @apply
+                ease-in-out duration-200
+                hover:text-indigo-500
+                cursor-pointer;
+            }
+        }  
+        
+        &__map {
+            @apply
+            col-start-2
+            row-span-2
+            row-start-1
+            max-sm:row-start-2
+            max-sm:row-span-1
+            max-sm:w-full
+            max-sm:mx-auto
+            max-sm:col-start-1
+            h-full
+            w-full
+            rounded-2xl;
+        }
+
+        &__copyright {
+            @apply
+            row-span-1
+            col-start-1
+            max-sm:row-start-3
+            max-sm:text-center
+            max-sm:mt-4
+            ;
+        }
+}

@@ -1,0 +1,217 @@
+.cart {
+
+    background-image: url('@/../../../../public/Catalog\ BG.jpg');
+    background-position: center;
+    background-size: cover;
+
+    @apply
+    rounded-primary
+    ;
+
+    &__container {
+        margin: 0 auto;
+        max-width: 1680px;
+        @apply
+        px-5 py-32
+        h-full
+        grid grid-cols-3 gap-10
+        max-lg:grid-cols-2
+        max-lg:gap-6
+        max-lg:py-16
+        max-sm:py-8
+        ;
+    }
+
+    &__products {
+        @apply
+        col-span-2
+        max-lg:grid
+        max-lg:gap-0
+        ;
+    }
+    &__product {
+        @apply 
+        flex gap-4 mb-5
+        ;
+        &_empty {
+            @apply
+            text-4xl
+            font-normal
+            text-[#A0AAC6]
+            ;
+        }
+        &_image {
+            @apply
+            h-48 w-48
+            max-[520px]:w-24
+            min-w-[192px]
+            max-[520px]:min-w-[120px]
+            bg-white
+            rounded-lg
+            relative
+            ;
+            &_image {
+                @apply
+                p-4
+                object-contain
+                ;
+            }
+        }
+        &_info {
+            @apply
+            flex flex-col justify-between
+            ;
+            &_title {
+                @apply
+                text-2xl
+                max-md:text-xl
+                max-sm:text-lg
+                font-bold
+                mb-1
+                ;
+            }
+            &_buttons{
+                @apply
+                flex 
+                ;
+                &_delete {
+                    @apply
+                    relative 
+                    bg-red-500 hover:bg-red-700
+                    text-white
+                    py-1 px-4 rounded-lg
+                    cursor-pointer duration-200 ease-in-out
+                    mr-2 flex items-center
+                    ;
+                    &_text {
+                        @apply
+                        mr-2
+                        max-[540px]:hidden
+                        h-fit w-fit
+                        pointer-events-none
+                        ;
+                    }
+                    &_icon {
+                        @apply h-fit w-fit
+                        pointer-events-none
+                        ;
+                    }
+                }
+                &_x {
+                    @apply
+                    bg-white hover:text-black
+                    font-medium
+                    text-[#A0AAC6]
+                    py-1 px-4 rounded-lg
+                    cursor-pointer duration-200 ease-in-out
+                    ;
+                }
+                &_amount {
+                    @apply
+                    bg-white
+                    mx-2
+                    font-medium
+                    text-black
+                    py-1 px-4 rounded-lg
+                    cursor-pointer duration-200 ease-in-out
+                    ;
+                }
+            }
+            &_dies{
+                @apply
+                text-base
+                font-medium
+                text-[#A0AAC6]
+                mb-1
+                ;
+            }
+            &_pricebox {
+                &_price {
+                    @apply
+                        text-2xl
+                        mr-2
+                    ;
+                }
+                &_oldprice {
+                    @apply
+                    text-[#888888]
+                    text-base font-bold
+                    relative
+                    text-center
+                    -top-0.5
+                    ;
+                }
+                &_oldprice::before {
+                    content: "";
+                    border-bottom: 2px solid #FF3E3E;
+                    position: absolute;
+                    width: 100%;
+                    height: 50%;
+                    transform: rotate(-12deg);
+                    @apply
+                    top-0;
+                }
+            }
+            
+        }
+    }
+
+    &__check {
+        @apply
+            bg-white
+            rounded-lg
+            px-6 py-4
+            h-fit
+            max-lg:col-span-2
+            ;
+        &_title {
+            @apply
+            text-4xl font-bold
+            mb-4
+            ;
+        }
+        &_els {
+            @apply  
+            text-lg
+            font-medium
+            mb-4
+            ;
+            &_el {
+                @apply
+                flex justify-between
+                ;
+                &_discount{
+                    @apply
+                    text-red-500
+                    ;
+                }
+            }
+            &_price {
+                @apply
+                flex justify-between mt-8 mb-4 items-end
+                ;
+                &_price{
+                    @apply
+                    text-4xl
+                    font-bold
+                    ;
+                }
+            }
+        }
+        &_button {
+            @apply
+            block
+            w-full
+            text-center
+            font-normal
+            text-lg
+            bg-gray-300 text-black
+            py-3
+            rounded-lg
+            ease-in-out duration-200
+            hover:bg-black
+            hover:text-white
+            ;
+        }
+    }
+}

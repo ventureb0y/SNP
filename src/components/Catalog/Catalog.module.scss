@@ -1,0 +1,135 @@
+.catalog {
+
+    background-image: url('@/../../../../public/Catalog\ BG.jpg');
+    background-position: center;
+    background-size: cover;
+
+    @apply
+    rounded-primary
+    bg-[#fafafa];
+ 
+    &__container {
+        margin: 0 auto;
+        max-width: 1680px;
+        @apply
+        px-5
+        h-fit
+        py-20
+        grid
+        grid-cols-[300px_1fr]
+        gap-5
+        max-xl:gap-8
+        max-lg:gap-6
+        max-lg:grid-rows-1
+        max-md:py-16
+        max-sm:py-12
+        max-sm:grid-rows-1
+        ;
+    }
+
+    &__filters {
+        @apply
+        max-lg:row-span-1
+        max-lg:col-span-3
+        max-lg:grid-rows-[0.2fr_1fr_0.2fr]
+        gap-4 grid 
+        max-lg:grid-cols-3 
+        ;
+        &_search {
+            @apply
+            w-full
+            placeholder:text-[#D7DDEC]
+            text-lg
+            font-medium
+            py-3 px-5
+            rounded-lg
+            outline-none
+            ease-in-out duration-200
+
+            max-lg:col-start-1
+            max-lg:h-fit
+            ;
+        }
+        &_title {
+            @apply
+            block
+            text-xl
+            font-medium
+            mb-3
+            ;
+        }
+        &_check{
+            @apply
+            flex
+            h-fit
+            text-lg
+            font-normal
+            ;
+        }
+        &_checkbox{
+            @apply
+            mr-2
+            w-3
+            bg-white
+            ;
+        }
+        &_brands {
+            @apply
+            p-5
+            w-full h-fit
+            rounded-lg bg-white 
+            max-lg:col-start-1
+            ;
+        }
+        &_types {
+            @apply
+            p-5
+            rounded-lg bg-white 
+            max-w-fit h-fit
+            max-lg:col-span-2
+            max-lg:row-span-3
+            max-lg:row-start-1
+            max-lg:col-start-2
+            max-lg:h-full
+            max-lg:max-w-full
+            ;
+            &_box {
+                @apply
+                max-lg:mt-6
+                max-lg:grid max-lg:grid-rows-3 max-lg:grid-cols-2 max-lg:gap-x-4
+                max-md:grid-cols-1
+                ;
+            }
+        }
+        &_button {
+            @apply
+            text-black
+            py-4
+            text-center
+            font-medium
+            w-full h-fit rounded-lg
+            bg-white
+            ease-in-out duration-200
+            hover:text-white hover:bg-black
+            max-lg:col-start-1
+            ;
+        }
+    }
+
+    &__cardbox {
+        @apply
+        overflow-y-scroll
+        grid grid-cols-5 gap-5 grid-flow-row
+        max-2xl:grid-cols-4
+        max-xl:grid-cols-3
+        max-lg:col-span-3
+        max-lg:row-span-2
+        max-sm:grid-cols-2
+        ;
+    }
+    &__cardbox::-webkit-scrollbar {
+        @apply
+        hidden
+        ;
+    }
+}

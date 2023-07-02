@@ -1,0 +1,88 @@
+.product {
+    @apply
+    flex flex-col justify-between h-80
+    ;
+    &_image {
+        @apply
+        relative
+        h-full
+        flex rounded-md
+        items-center
+        justify-center
+        p-2 mb-2
+        bg-[#fafafa]
+        shadow-lg
+        shadow-slate-200
+        ;
+        &_image {
+            @apply
+            p-5
+            object-contain
+            overflow-visible
+            ;
+        }
+    }
+    &_name {
+        @apply
+        block
+        font-medium
+        text-lg
+        mb-2
+        ;
+    }
+    &_discount {
+        @apply
+        absolute
+        rounded-md
+        bg-[#FF4A55]
+        font-medium
+        border-2
+        border-white
+        text-white
+        px-1.5 py-0.5
+        m-1
+        left-0 bottom-0
+        ;
+    }
+    &_price {
+        @apply
+        text-2xl
+        font-medium
+        mr-2
+        ;
+    }
+    &_oldprice {
+        @apply
+        text-[#888888]
+        text-base font-bold
+        relative
+        text-center
+        -top-0.5
+        ;
+    }
+    &_oldprice::before {
+        content: "";
+        border-bottom: 2px solid #FF3E3E;
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        transform: rotate(-12deg);
+        @apply
+        top-0;
+    }
+    &_link {
+        @apply
+        block
+        w-full
+        text-center
+        font-normal
+        text-lg
+        bg-white
+        mr-2 py-1
+        rounded-lg
+        ease-in-out duration-200
+        hover:bg-black
+        hover:text-white
+        ;
+    }
+}

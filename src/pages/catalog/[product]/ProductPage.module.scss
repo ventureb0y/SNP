@@ -1,0 +1,234 @@
+.product {
+
+    background-image: url('@/../../../../../public/Catalog\ BG.jpg');
+    background-position: center;
+    background-size: cover;
+
+    @apply
+    rounded-primary
+    ;
+
+    &__container {
+        margin: 0 auto;
+        max-width: 1680px;
+        @apply
+        px-5 py-32
+        h-full
+        grid grid-cols-2 gap-10
+        max-lg:grid-cols-1
+        max-lg:grid-rows-2
+        max-lg:py-12
+        max-sm:grid-rows-2
+        ;
+    }
+
+    &__gallery {
+        @apply
+        col-span-1
+        grid grid-rows-3 grid-cols-4 gap-2
+        max-xl:grid-rows-4
+        max-sm:grid-rows-[1fr_0.4fr]
+        max-[520px]:grid-rows-[1fr_0.2fr]
+
+        ;
+        &_images{
+            @apply
+            relative
+            row-span-3
+            grid gap-2
+            max-xl:col-span-4
+            max-xl:row-span-1
+            max-xl:grid-cols-4
+            max-lg:col-span-1
+            max-lg:row-span-4
+            max-lg:grid-rows-4
+            max-lg:grid-cols-1
+            max-sm:row-span-1
+            max-sm:col-span-4
+            max-sm:grid-cols-4
+            max-sm:grid-rows-1
+            ;
+            &_imagebox {
+                @apply
+                relative
+                rounded-xl
+                border-4
+                cursor-pointer
+                max-h-fit
+                bg-white
+                ease-in-out duration-200
+                hover:border-indigo-500
+                ;
+                &_image {
+                    @apply
+                    object-contain
+                    p-5
+                    ;
+                }
+            }
+        }
+
+        &_imagebox{
+            @apply
+            relative
+            rounded-xl
+            col-span-3
+            row-span-3
+            max-xl:row-start-1
+            max-lg:col-start-2
+            max-lg:row-span-4
+            max-sm:col-start-1
+            max-sm:row-span-1
+            max-sm:row-start-1
+            bg-white
+            duration-200
+            max-xl:col-span-4
+            ;
+        }
+        &_image{
+            @apply
+            p-10
+            object-contain
+            duration-200
+            ;
+        }
+    }
+
+    &__info {
+        &_title {
+            @apply
+            text-3xl
+            font-bold
+            mb-8
+            ;
+        }
+        &_desc {
+            @apply
+            text-xl
+            mb-8
+            ;
+        }
+        &_chars {
+            @apply
+            flex
+            mb-8
+            ;
+        }
+        &_char {
+            @apply
+            text-[#A0AAC6]
+            mr-16
+            ;
+        }
+        &_dies {
+            @apply
+            flex
+            ;
+            &_die {
+                @apply
+                bg-white
+                text-xl font-medium rounded-lg
+                py-2.5 px-6 mb-8
+                ;
+            }
+            &_die:not(:last-child) {
+                @apply
+                mr-2
+                ;
+            }
+        }
+        &_price {
+            @apply
+            text-3xl
+            font-medium
+            mr-2
+            ;
+        }
+        &_oldprice {
+            @apply
+            text-[#A0AAC6]
+            text-2xl font-bold
+            relative
+            text-center
+            -top-0.5
+            ;
+        }
+        &_oldprice::before {
+            content: "";
+            border-bottom: 3px solid #FF3E3E;
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            transform: rotate(-12deg);
+            @apply
+            top-0;
+        }
+        &_button {
+            @apply
+            block
+            mt-4
+            w-fit cursor-pointer
+            bg-white text-black font-medium
+            rounded-lg
+            py-4 px-10
+            ease-in-out duration-200
+            hover:bg-black hover:text-white
+            ;
+            
+        }
+        &_buttons {
+            @apply
+            flex gap-2
+            ;
+            &_remove {
+                @apply
+                flex items-center
+                mt-4
+                w-fit cursor-pointer
+                bg-red-500 text-white font-normal
+                rounded-lg
+                py-4 px-10
+                ease-in-out duration-200
+                hover:bg-red-700 hover:text-white
+                ;
+                &_text {
+                    @apply
+                    mr-2
+                    max-[419px]:hidden
+                    h-fit w-fit
+                    pointer-events-none
+                    ;
+                }
+                &_icon {
+                    @apply h-fit w-fit
+                    pointer-events-none
+                    ;
+                }
+            }
+            &_x {
+                @apply
+                block
+                mt-4 py-4 px-6
+                w-fit cursor-pointer
+                bg-white hover:text-black
+                    font-medium
+                    text-[#A0AAC6]
+                rounded-lg
+                duration-200 ease-in-out
+                ;
+            }
+            &_amount {
+                @apply
+                block
+                mt-4
+                w-fit cursor-pointer
+                bg-white text-black font-medium
+                rounded-lg
+                max-sm:px-4
+                py-4 px-6
+                ease-in-out duration-200
+                ;
+            }
+        }
+    }
+}

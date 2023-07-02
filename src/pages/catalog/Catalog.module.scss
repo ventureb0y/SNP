@@ -1,0 +1,29 @@
+.catalog {
+
+    @apply
+    rounded-primary
+    bg-[#fafafa];
+ 
+    &__container {
+        margin: 0 auto;
+        max-width: 1680px;
+        @apply
+        px-5
+        items-center
+        justify-between
+        h-fit
+        py-20
+        grid
+        grid-cols-3
+        grid-rows-2
+        gap-10
+        max-xl:gap-8
+        max-lg:grid-cols-2
+        max-lg:grid-rows-[60px_1fr_1fr]
+        max-lg:gap-6
+        max-sm:grid-rows-[100px_1fr_1fr_1fr_1fr]
+        max-md:py-16
+        max-sm:py-12
+        ;
+    }
+}
