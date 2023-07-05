@@ -9,6 +9,7 @@ import useCartStore from '@/store/cart/cartStore'
 import { routes } from '@/routes/routes'
 import { FaTrash } from 'react-icons/fa';
 import { setPriceStyle } from '@/utils/stylePrice'
+import { api } from '@/routes/api'
 
 const Cart = () => {
 
@@ -37,7 +38,7 @@ const Cart = () => {
                             {products.length != 0 ? products.map((product) => (
                                 <div className={styles.cart__product}>
                                 <div className={styles.cart__product_image}>
-                                    <Image className={styles.cart__product_image_image} alt='xd' fill src={`http://127.0.0.1:1337${product.images[0].attributes.url}`}/>
+                                    <Image className={styles.cart__product_image_image} alt='xd' fill src={api.getImage(product.images[0].attributes.url)}/>
                                 </div>
                                 <div className={styles.cart__product_info}>
                                     <div>

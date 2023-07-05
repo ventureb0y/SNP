@@ -1,4 +1,4 @@
-const main = 'http://127.0.0.1:1337'
+const main = 'https://admin.sport-nutrition-premium.ru'
 
 export const api = {
     signin: main + '/api/auth/local',
