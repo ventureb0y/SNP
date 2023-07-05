@@ -1,8 +1,6 @@
-'use client'
 import Header from '@/components/Header/Header'
 import styles from './ProductPage.module.scss'
 import Footer from '@/components/Footer/Footer'
-import { GetStaticPaths, GetStaticProps } from 'next'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { api } from '@/routes/api'
@@ -32,32 +30,8 @@ type Product = {
     }
 }
 
-type Data = {
-    id: number,
-    attributes: {
-        name: string,
-        price: number,
-        old_price: number,
-        description: string,
-        images: {
-            data: [
-                    {
-                        attributes: {
-                            url: string
-                        }
-                }
-            ]
-        }
-    }
-}
-
 const ProductPage = ({ res }) => {
     const [img, setImage] = useState('')
-
-    useEffect(() => {
-        setImage(image_link)
-    }, [])
-    
     const { data }: Product = res
     const { id } = data
     const { name, price, old_price, description, dies, images } = data.attributes
@@ -67,6 +41,10 @@ const ProductPage = ({ res }) => {
     const [quantity, addProduct] = useCartStore((state) => [state.quantity, state.addProduct])
     const [increaseProduct, decreaseProduct, removeProduct] = useCartStore((state) => [state.increaseProduct, state.decreaseProduct, state.removeProduct])
     const quant = quantity.filter((q) => q.id === id)
+    useEffect(() => {
+        setImage(image_link)
+    }, [image_link])
+    
     return (
         <>
             <Header/>
@@ -75,7 +53,7 @@ const ProductPage = ({ res }) => {
                         <div className={styles.product__gallery}>
                         {images.data.length > 0 ? <div className={styles.product__gallery_images}>
                                 {images.data.map((e) => 
-                                <div onClick={() => {setImage(api.getImage(e.attributes.url))}} key={e.id} className={styles.product__gallery_images_imagebox}>
+                                <div key={e.attributes.url} onClick={() => {setImage(api.getImage(e.attributes.url))}} className={styles.product__gallery_images_imagebox}>
                                     <Image alt='XD' fill src={api.getImage(e.attributes.url)} className={styles.product__gallery_images_imagebox_image}/> 
                                 </div>
                                 )}
@@ -108,7 +86,7 @@ const ProductPage = ({ res }) => {
                                 </ul>
                             </div>
                             <ul className={styles.product__info_dies}>
-                                {die != '' ? die.map((e) => <li className={styles.product__info_dies_die}>{e}</li>) : ''}
+                                {die != '' ? die.map((e) => <li key={e} className={styles.product__info_dies_die}>{e}</li>) : ''}
                             </ul>
                             <span className={styles.product__info_price}>{setPriceStyle(price)}</span>
                             <span className={styles.product__info_oldprice}>{setPriceStyle(old_price)}</span>
@@ -117,15 +95,15 @@ const ProductPage = ({ res }) => {
                             :
                             <div className={styles.product__info_buttons}>
                                 <ul className={styles.product__info_buttons}>
-                                        <li onClick={(e) => {removeProduct(e.target.id)}} id={id} className={styles.product__info_buttons_remove}>
+                                        <li onClick={(e) => {removeProduct(Number((e.target as HTMLInputElement).id))}} id={String(id)} className={styles.product__info_buttons_remove}>
                                             <span className={styles.product__info_buttons_remove_text}>
                                                 УДАЛИТЬ
                                             </span>
                                             <FaTrash className={styles.product__info_buttons_remove_icon}/>
                                         </li>
-                                        <li onClick={(e) => {decreaseProduct(e.target.id)}} id={id} className={styles.product__info_buttons_x}>-</li>
+                                        <li onClick={(e) => {decreaseProduct(Number((e.target as HTMLInputElement).id))}} id={String(id)} className={styles.product__info_buttons_x}>-</li>
                                         <li className={styles.product__info_buttons_amount}>{quantity.filter((q) => q.id === id)[0].quantity} шт</li>
-                                        <li onClick={(e) => {increaseProduct(e.target.id)}} id={id} className={styles.product__info_buttons_x}>+</li>
+                                        <li onClick={(e) => {increaseProduct(Number((e.target as HTMLInputElement).id))}} id={String(id)} className={styles.product__info_buttons_x}>+</li>
                                 </ul>
                             </div>
                             }

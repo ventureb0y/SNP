@@ -1,4 +1,3 @@
-'use client'
 import Header from '@/components/Header/Header'
 import styles from './Cart.module.scss'
 import Footer from '@/components/Footer/Footer'
@@ -28,7 +27,7 @@ const Cart = () => {
     useEffect(() => {
         trigger()
     }, [])
-
+ 
     return (
         <>
             <Header/>
@@ -56,15 +55,15 @@ const Cart = () => {
                                         </div>
                                     </div>
                                     <ul className={styles.cart__product_info_buttons}>
-                                        <li onClick={(e) => {removeProduct(e.target.id), trigger()}} id={product.id} className={styles.cart__product_info_buttons_delete}>
+                                        <li onClick={(e) => {removeProduct(Number((e.target as HTMLInputElement).id)), trigger()}} id={String(product.id)} className={styles.cart__product_info_buttons_delete}>
                                             <span className={styles.cart__product_info_buttons_delete_text}>
                                                 Удалить
                                             </span>
                                             <FaTrash className={styles.cart__product_info_buttons_delete_icon}/>
                                         </li>
-                                        <li onClick={(e) => {decreaseProduct(e.target.id), trigger()}} id={product.id} className={styles.cart__product_info_buttons_x}>-</li>
+                                        <li onClick={(e) => {decreaseProduct(Number((e.target as HTMLInputElement).id)), trigger()}} id={String(product.id)} className={styles.cart__product_info_buttons_x}>-</li>
                                         <li className={styles.cart__product_info_buttons_amount}>{quantity.filter((q) => q.id === product.id)[0].quantity} шт</li>
-                                        <li onClick={(e) => {increaseProduct(e.target.id), trigger()}} id={product.id} className={styles.cart__product_info_buttons_x}>+</li>
+                                        <li onClick={(e) => {increaseProduct(Number((e.target as HTMLInputElement).id)), trigger()}} id={String(product.id)} className={styles.cart__product_info_buttons_x}>+</li>
                                     </ul>
                                 </div>
                             </div>

@@ -4,7 +4,7 @@ import Footer from '@/components/Footer/Footer'
 import Link from 'next/link'
 import { routes } from '@/routes/routes'
 
-const NotFound = async () => {
+const NotFound = () => {
     return (
         <section className={styles.nf}>
             <Header/>

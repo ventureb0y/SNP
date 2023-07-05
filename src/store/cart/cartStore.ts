@@ -1,16 +1,53 @@
 import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import { createJSONStorage, persist } from 'zustand/middleware'
+
+type Product = {
+    id: number,
+    name: string,
+    price: number,
+    oldprice: number,
+    dies: string[],
+    images: {
+            data: [
+                {
+                    attributes: {
+                        url: string
+                    }
+                }
+            ]
+    }
+}
+
+type Quantuty = {
+    id: number,
+    quantity: number
+}
+
+interface CatalogState {
+    products: Product[],
+    quantity: Quantuty[],
+    price: number,
+    discount: number,
+    amount: number,
+  
+    increaseProduct: (by: number) => void,
+    decreaseProduct: (by: number) => void,
+    addProduct: (Product) => void,
+    removeProduct: (by: number) => void,
+    setPrice: () => void,
+    setDiscount: () => void,
+    setAmount: () => void,
+  }
 
 
-const useCartStore = create(persist((set, get) => ({
+
+
+const useCartStore = create<CatalogState>()(persist((set, get) => ({
     products: [],
     quantity: [],
     price: 0,
     discount: 0,
     amount: 0,
-
-    getCart: () => ({
-    }),
 
     increaseProduct: (id) => {
         get().quantity.map((q) => {
@@ -41,8 +78,8 @@ const useCartStore = create(persist((set, get) => ({
     },
 
     addProduct: (product) => {
-        set((state) => ({
-            products: [...state.products, { 
+        set({
+            products: [...get().products, { 
                 id: product.id,
                 name: product.attributes.name,
                 price: product.attributes.price,
@@ -51,7 +88,7 @@ const useCartStore = create(persist((set, get) => ({
                 images: product.attributes.images.data,
             }
             ]
-        }))            
+        })            
         
             set((state) => ({
                 quantity: [...state.quantity, {
@@ -108,7 +145,7 @@ const useCartStore = create(persist((set, get) => ({
     }),
     {
         name: "cart-storage",
-        getStorage: () => sessionStorage
+        storage: createJSONStorage(() => sessionStorage),
     })
 )
 

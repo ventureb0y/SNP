@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 
-const DynamicCartWithNoSSR = dynamic(() => import("./Cart"), {
+const DynamicCartWithNoSSR = dynamic(() => import("@/components/CartPage/Cart"), {
   ssr: false,
 });
 

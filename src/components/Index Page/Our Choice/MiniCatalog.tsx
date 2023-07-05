@@ -4,9 +4,16 @@ import Link from 'next/link'
 import { routes } from '@/routes/routes'
 import { api } from '@/routes/api'
 import { ImArrowRight2 } from 'react-icons/im'
+import { Product } from '@/types/Product.type'
 
-const MiniCatalog = ({catalog_title, catalog_description, products}: {catalog_title: string, catalog_description: string, products: any}) => {
-    const prodArr = products.slice(0, 8)
+
+const MiniCatalog = ({catalog_title, catalog_description, products}: {catalog_title: string, catalog_description: string, products: Product[]}) => {
+    const prodArr: Product[] = products.slice(0, 8)
+    const math = (x: number, y: number) => {
+       const z = (1 - x / y).toFixed(2)
+       return (Number(z) * 100)
+    } 
+
     return (
         <section className={styles.catalog}>
             <div className={styles.catalog__container}>
@@ -27,8 +34,8 @@ const MiniCatalog = ({catalog_title, catalog_description, products}: {catalog_ti
                             <div key={e.id} className={styles.catalog__catalog__product}>
                                 <div className={styles.catalog__catalog__product_image}>
                                     {e.attributes.price < e.attributes.old_price && 
-                                    <span className={styles.catalog__catalog__product_discount}> -{(1 - e.attributes.price / e.attributes.old_price).toFixed(2) * 100}%</span>}
-                                    <Image className={styles.catalog__catalog__product_image_image} fill alt={e.name} src={api.getImage(e.attributes.images.data[0].attributes.url)}/>
+                                    <span className={styles.catalog__catalog__product_discount}> -{math(e.attributes.price, e.attributes.old_price)}%</span>}
+                                    <Image className={styles.catalog__catalog__product_image_image} fill alt={e.attributes.name} src={api.getImage(e.attributes.images.data[0].attributes.url)}/>
                                 </div>
                                     <div>
                                         <span className={styles.catalog__catalog__product_price}>{Intl.NumberFormat("ru", {style: "currency", currency: "RUB", maximumFractionDigits: 0}).format(e.attributes.price)}</span>

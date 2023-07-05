@@ -13,12 +13,18 @@ type Props = {
 }
 
 const ProductCard = ({ id, image, name, price, old_price }: Props) => {
+
+    const math = (x: number, y: number) => {
+        const z = (1 - x / y).toFixed(2)
+        return (Number(z) * 100)
+     } 
+
     return (
         <>
             <div key={name} className={styles.product}>
                 <Link href={routes.product(id)} className={styles.product_image}>
                     { price < old_price ? 
-                    <span className={styles.product_discount}> -{((1 - (price / old_price)).toFixed(2)) * 100}%</span> : ''}
+                    <span className={styles.product_discount}> -{math(price, old_price)}%</span> : ''}
                     <Image className={styles.product_image_image} alt={name} fill src={image}/>
                 </Link>
                 <div>

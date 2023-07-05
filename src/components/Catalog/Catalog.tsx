@@ -5,13 +5,21 @@ import styles from './Catalog.module.scss'
 import useCatalogStore from '@/store/catalog/catalogStore'
 import { useEffect } from 'react'
 
-const Catalog = ({data}) => {
+type Data = {
+    data: {
+        products,
+        brands,
+        types
+    }
+}
+
+const Catalog = ({data}: Data) => {
     const [Products, getProd] = useCatalogStore(state => [state.products, state.getProducts])
     const Brands = data.brands
     const ProductTypes = data.types
     useEffect(() => {
         getProd()
-    }, [])
+    }, [getProd])
     const sendData = (f) => {
         f.preventDefault()
         const name: string = f.target.search.value

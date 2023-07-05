@@ -61,7 +61,7 @@ const Reviews = () => {
                             {e.name}
                         </span>
                         <span className={styles.reviews__card_stars}>
-                            {Array.from(Array(e.stars).keys()).map(() => <Image alt='star' src={star} className={styles.reviews__card_stars_star}/>)}
+                            {Array.from(Array(e.stars).keys()).map(() => <Image key={`${e.id}${e.stars}`} alt='star' src={star} className={styles.reviews__card_stars_star}/>)}
                         </span>
                             {e.text} 
                     </div>)}

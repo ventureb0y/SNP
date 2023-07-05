@@ -1,8 +1,29 @@
 import { getProducts } from "@/services/catalog/getProducts";
+import { Product } from "@/types/Product.type";
 import dynamic from "next/dynamic";
 import { GetStaticPaths, GetStaticProps } from "next/types";
 
-const DynamicProductWithNoSSR = dynamic(() => import("./Product"), {
+type Data = {
+      id: number,
+      attributes: {
+          name: string,
+          price: number,
+          old_price: number,
+          description: string,
+          dies: string,
+          images: {
+              data: [
+                  {
+                      attributes: {
+                          url: string
+                      }
+                  }
+              ]
+          }
+  }
+}
+
+const DynamicProductWithNoSSR = dynamic(() => import("@/components/ProductPage/Product"), {
   ssr: false,
 });
 
