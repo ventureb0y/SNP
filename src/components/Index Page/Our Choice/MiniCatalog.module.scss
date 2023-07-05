@@ -13,9 +13,8 @@
         py-20
         grid grid-cols-3 gap-6
         max-lg:grid-cols-1
-        max-lg:grid-rows-[1fr_1.5fr]
+        max-lg:flex max-lg:flex-col
         max-lg:gap-0
-        max-sm:grid-rows-[1fr_3fr]
         ;
     }
 
@@ -93,7 +92,7 @@
         &__product { 
             @apply
                 flex flex-col justify-between
-                h-full
+                h-full 
             ;
             &_image {
                 @apply
@@ -102,6 +101,7 @@
                 items-center
                 justify-center
                 h-full
+                min-h-[220px]
                 p-2 mb-2
                 bg-[#fafafa]
                 ;

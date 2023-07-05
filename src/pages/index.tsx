@@ -12,6 +12,8 @@ import { getProducts } from "@/services/catalog/getProducts"
 import { getHomeInfo } from "@/services/home/getHomeInfo"
 
 const rubik = Rubik({ subsets: ['latin'] })
+
+
 const Home = ({res, home}) => {
   return (  
     <div className={rubik.className}>

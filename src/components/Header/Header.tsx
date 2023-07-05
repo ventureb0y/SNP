@@ -27,7 +27,7 @@ const Header = () => {
                         <Link href={routes.cart}>Корзина</Link>
                     </li>
                 </ul>
-                <div>+ 0 (000) 000-00-00</div>
+                <div className={styles.header__phone}>+ 0 (000) 000-00-00</div>
 
 
 
