@@ -13,9 +13,11 @@ import { api } from '@/routes/api'
 
 const Cart = () => {
 
-    useEffect(() => {
-        trigger()
-    }, [])
+    const [products, quantity] = useCartStore((state) => [state.products, state.quantity])
+    const [price, setPrice] = useCartStore((state) => [state.price, state.setPrice])
+    const [discount, setDiscount] = useCartStore((state) => [state.discount, state.setDiscount])
+    const [amount, setAmount] = useCartStore((state) => [state.amount, state.setAmount])
+    const [increaseProduct, decreaseProduct, removeProduct] = useCartStore((state) => [state.increaseProduct, state.decreaseProduct, state.removeProduct])
 
     const trigger = () => {
         setPrice()
@@ -23,11 +25,9 @@ const Cart = () => {
         setAmount()
     }
 
-    const [products, quantity] = useCartStore((state) => [state.products, state.quantity])
-    const [price, setPrice] = useCartStore((state) => [state.price, state.setPrice])
-    const [discount, setDiscount] = useCartStore((state) => [state.discount, state.setDiscount])
-    const [amount, setAmount] = useCartStore((state) => [state.amount, state.setAmount])
-    const [increaseProduct, decreaseProduct, removeProduct] = useCartStore((state) => [state.increaseProduct, state.decreaseProduct, state.removeProduct])
+    useEffect(() => {
+        trigger()
+    }, [])
 
     return (
         <>
@@ -36,7 +36,7 @@ const Cart = () => {
                     <div className={styles.cart__container}>
                         <div className={styles.cart__products}>
                             {products.length != 0 ? products.map((product) => (
-                                <div className={styles.cart__product}>
+                                <div key={product.id} className={styles.cart__product}>
                                 <div className={styles.cart__product_image}>
                                     <Image className={styles.cart__product_image_image} alt='xd' fill src={api.getImage(product.images[0].attributes.url)}/>
                                 </div>
@@ -46,7 +46,7 @@ const Cart = () => {
                                         <ul className={styles.cart__product_info_dies}>
                                             {
                                                 product.dies?.map((die) => (
-                                                    <li>{die}</li>
+                                                    <li key={die}>{die}</li>
                                                 ))
                                             }
                                         </ul>

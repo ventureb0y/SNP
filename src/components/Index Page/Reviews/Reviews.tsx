@@ -5,36 +5,42 @@ import * as star from '@/../../public/rev_star.png'
 
 const reviewsData = [
     {
+        id: 1,
         avatar: avatar,
         name: 'Иван Петров',
         stars: 5,
         text: 'Регулярно покупаю витамины для себя и своей семьи. Всем рекомендую данный магазин!'
     },
     {
+        id: 2,
         avatar: avatar,
         name: 'Иван Петров',
         stars: 1,
         text: 'Регулярно покупаю витамины для себя и своей семьи. Всем рекомендую данный магазин!'
     },
-    {
+    {   
+        id: 3,
         avatar: avatar,
         name: 'Иван Петров',
         stars: 5,
         text: 'Регулярно покупаю витамины для себя и своей семьи. Всем рекомендую данный магазин!'
     },
     {
+        id: 4,
         avatar: avatar,
         name: 'Иван Петров',
         stars: 3,
         text: 'Регулярно покупаю витамины для себя и своей семьи. Всем рекомендую данный магазин!'
     },
     {
+        id: 5,
         avatar: avatar,
         name: 'Иван Петров',
         stars: 5,
         text: 'Регулярно покупаю витамины для себя и своей семьи. Всем рекомендую данный магазин!'
     },
     {
+        id: 6,
         avatar: avatar,
         name: 'Иван Петров',
         stars: 4,
@@ -49,7 +55,7 @@ const Reviews = () => {
                 <h5 className={styles.reviews__title}>ОТЗЫВЫ</h5>
                 <div className={styles.reviews__cardbox}>
                     {reviewsData.map((e) => 
-                    <div className={styles.reviews__card}>
+                    <div key={e.id} className={styles.reviews__card}>
                         <Image alt={e.name} src={e.avatar}/>
                         <span className={styles.reviews__card_name}>
                             {e.name}

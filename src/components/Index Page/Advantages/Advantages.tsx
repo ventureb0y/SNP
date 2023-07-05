@@ -34,7 +34,7 @@ const Advantages = ({advantages_title}) => {
                 <h5 className={styles.advantages__title}>
                     {advantages_title}
                 </h5>
-                {Content.map((e) => <div className={styles.advantages__card}><Image className={styles.advantages__card_image} alt={`${e.image}`} src={e.image}/><span>{e.text}</span></div>)}
+                {Content.map((e) => <div key={e.text} className={styles.advantages__card}><Image className={styles.advantages__card_image} alt={`${e.image}`} src={e.image}/><span>{e.text}</span></div>)}
             </div>
         </section>
     )

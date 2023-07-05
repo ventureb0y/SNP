@@ -6,13 +6,12 @@ import useCatalogStore from '@/store/catalog/catalogStore'
 import { useEffect } from 'react'
 
 const Catalog = ({data}) => {
-    useEffect(() => {
-        getProd()
-    }, [])
     const [Products, getProd] = useCatalogStore(state => [state.products, state.getProducts])
     const Brands = data.brands
     const ProductTypes = data.types
-
+    useEffect(() => {
+        getProd()
+    }, [])
     const sendData = (f) => {
         f.preventDefault()
         const name: string = f.target.search.value
@@ -38,8 +37,8 @@ const Catalog = ({data}) => {
                     <div className={styles.catalog__filters_brands}>
                         <span className={styles.catalog__filters_title}>Бренды</span>
                             {Brands.map((e) => 
-                              <div className={styles.catalog__filters_check}>
-                                <input key={e.attributes.id} value={e.attributes.brand_name} name={e.attributes.brand_name} type="checkbox" className={styles.catalog__filters_checkbox}/><span>{e.attributes.brand_name}</span>
+                              <div key={e.id} className={styles.catalog__filters_check}>
+                                <input value={e.attributes.brand_name} name={e.attributes.brand_name} type="checkbox" className={styles.catalog__filters_checkbox}/><span>{e.attributes.brand_name}</span>
                              </div>
                             )}
                     </div>
@@ -47,7 +46,7 @@ const Catalog = ({data}) => {
                         <span className={styles.catalog__filters_title}>Тип продукта</span>
                         <div className={styles.catalog__filters_types_box}>
                             {ProductTypes.map((e) => 
-                              <div className={styles.catalog__filters_check}>
+                              <div key={e.id} className={styles.catalog__filters_check}>
                                 <input key={e.attributes.id} value={e.attributes.product_type} name={e.attributes.product_type} type="checkbox" className={styles.catalog__filters_checkbox}/><label>{e.attributes.product_type}</label>
                              </div>
                             )}
