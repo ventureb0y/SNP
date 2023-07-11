@@ -10,11 +10,12 @@ import Reviews from "@/components/Index Page/Reviews/Reviews"
 import { Rubik } from 'next/font/google'
 import { getProducts } from "@/services/catalog/getProducts"
 import { getHomeInfo } from "@/services/home/getHomeInfo"
+import { getReviews } from "@/services/home/getReviews"
 
 const rubik = Rubik({ subsets: ['latin'] })
 
 
-const Home = ({res, home}) => {
+const Home = ({res, home, reviews}) => {
   return (  
     <div className={rubik.className}>
         <Header/>
@@ -25,7 +26,7 @@ const Home = ({res, home}) => {
         <Partners props={home.attributes.brand_images}/>
         <Advantages advantages_title={home.attributes.advantages_title}/>
         <Delivery/>
-        <Reviews/>
+        <Reviews reviews={reviews}/>
         <MiniCatalog catalog_title={home.attributes.catalog_title} catalog_description={home.attributes.catalog_description} products={res}/>
         <Feedback feedback_title={home.attributes.feedback_title} feedback_description={home.attributes.feedback_description}/>
         <Footer/>
@@ -36,10 +37,12 @@ const Home = ({res, home}) => {
 export const getStaticProps = async () => {
   const res = await getProducts()
   const home = await getHomeInfo()
+  const reviews = await getReviews()
   return {
       props: {
           res,
-          home
+          home,
+          reviews
       },
       revalidate: 300
   }

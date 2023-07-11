@@ -69,6 +69,7 @@ const Cart = () => {
                             </div>
                             )) : <h5 className={styles.cart__product_empty}>Ваша корзина пуста</h5>}
                         </div>
+                        {products.length != 0 &&
                         <div className={styles.cart__check}>
                             <h5 className={styles.cart__check_title}>Ваша корзина</h5>
                             <ul className={styles.cart__check_els}>
@@ -77,7 +78,7 @@ const Cart = () => {
                                 <li className={styles.cart__check_els_price}><span>Общая стоимость:</span><span className={styles.cart__check_els_price_price}>{setPriceStyle(price - discount)}</span></li>
                             </ul>
                             <Link href={(price - discount) !== 0 ? routes.payment : routes.cart} className={styles.cart__check_button}>К ОФОРМЛЕНИЮ</Link>
-                        </div>
+                        </div>}
                     </div>
                 </section>
             <Footer/>

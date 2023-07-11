@@ -118,6 +118,7 @@
             @apply
             text-[#A0AAC6]
             mr-16
+            max-sm:mr-6
             ;
         }
         &_dies {
@@ -200,7 +201,7 @@
                     ;
                 }
                 &_icon {
-                    @apply h-fit w-fit
+                    @apply h-4 w-4
                     pointer-events-none
                     ;
                 }

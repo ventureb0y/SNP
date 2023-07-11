@@ -6,6 +6,7 @@ export const api = {
     getMe: main + '/api/users/me',
 
     getHomeInfo: main + '/api/home-page',
+    getReviews: main + '/api/reviews',
 
     getBrands: main + '/api/brands',
     getProductTypes: main + '/api/product-types',

@@ -56,6 +56,15 @@
             text-black
             mt-4 mb-1;
         }
+
+        &_image {
+            @apply
+                relative
+                w-20 h-20
+            ;
+        }
+
+
         &_stars {
             @apply
             flex

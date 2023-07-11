@@ -1,0 +1,93 @@
+.payment {
+    background-image: url('@/../../../../public/Catalog\ BG.jpg');
+    background-position: center;
+    background-size: cover;
+
+    @apply
+    rounded-primary
+    ;
+ 
+    &__container {
+        margin: 0 auto;
+        max-width: 1680px;
+        @apply
+        px-5
+        h-full
+        py-12
+        flex flex-col items-center
+        ;
+    }
+    &__form{
+        @apply
+        h-full
+        ;
+    }
+    &__title {
+        @apply
+        text-3xl font-bold mb-3
+        last:mt-8
+        ;
+    }
+    &__title2 {
+        @apply
+        mt-8
+        text-3xl font-bold mb-3
+        ;
+    }
+
+    &__radio {
+        @apply
+        mr-2
+        ;
+    }
+    &__radiobox {
+        @apply
+        block  
+        ;
+    }
+   
+    &__input {
+        @apply
+        w-full
+        rounded-lg
+        outline-none
+        outline-2
+        block
+        py-3 px-5
+        text-base
+        font-medium
+        mb-3
+        ease-in-out duration-200
+        active:outline-indigo-500
+        focus:outline-indigo-500
+        ;
+    }
+
+    &__button {
+        @apply
+        w-full
+        rounded-lg
+        py-3  
+        text-white
+        bg-black
+        ease-in-out
+        duration-200
+        hover:bg-indigo-500
+        flex items-center justify-center
+        ;
+        &_icon {
+            @apply
+            ml-3
+            duration-75
+            ease-in-out
+            ;
+        }
+    }
+    &__button:hover .payment__button_icon{
+            @apply
+            translate-x-1
+            duration-75
+            ease-in-out
+            ;
+    }
+}

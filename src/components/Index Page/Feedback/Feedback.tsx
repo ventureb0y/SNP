@@ -1,5 +1,8 @@
 import { ImArrowRight2 } from 'react-icons/im'
 import styles from './Feedback.module.scss'
+import FormData from 'form-data'
+import Mailgun from 'mailgun.js'
+import { email } from '@/config/email.adresses'
 
 const sendData = (e) => {
     e.preventDefault()
@@ -7,9 +10,24 @@ const sendData = (e) => {
         name: e.target.name.value,
         phone: e.target.phone.value,
         email: e.target.email.value,
-        connect:  e.target.connect.value,
-        issue: e.target.issue.value}
-    console.log(data)
+        connect: e.target.connect.value,
+        issue: e.target.issue.value
+    }
+
+    const mailgun = new Mailgun(FormData)
+    const client = mailgun.client({ username: 'api', key: process.env.MAILGUN_API_KEY })
+    const message = {
+        from: data.email,
+        to: email.recepient,
+        subject: 'Обращение',
+        text: `${data.name} - ${data.issue}
+
+Предпочтительный вид связи - ${data.connect}
+Email - ${data.email}
+Номер телефона - ${data.phone}`
+    }
+    client.messages.create(email.senderDomain, message)
+    e.target.reset()
 }
 
 const Feedback = ({feedback_title, feedback_description}: {feedback_title: string, feedback_description: string}) => {
@@ -26,6 +44,7 @@ const Feedback = ({feedback_title, feedback_description}: {feedback_title: strin
                 <button type='submit' className={styles.feedback__button}>ОТПРАВИТЬ
                     <ImArrowRight2 className={styles.feedback__button_icon}/>
                 </button>
+                
             </form>
         </section>
     )
