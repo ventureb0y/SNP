@@ -1,0 +1,33 @@
+.contacts {
+
+    background-image: url('@/../../../../public/Catalog\ BG.jpg');
+    background-position: center;
+    background-size: cover;
+
+    @apply
+    rounded-primary
+    ;
+ 
+    &__container {
+        margin: 0 auto;
+        max-width: 1680px;
+        @apply
+        px-5
+        h-fit
+        py-20
+        ;
+    }
+
+    &__title {
+        @apply
+        text-4xl font-bold
+        mb-4
+        ;
+    }
+
+    &__contacts{
+        @apply
+            mb-6
+        ;
+    }
+}

@@ -37,7 +37,7 @@ export const getStaticPaths: GetStaticPaths= async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }: { params: {product: string}}) => {
-    const req = await fetch(`https://admin.sport-nutrition-premium.ru/api/products/${params.product}?populate=images`, {next: {revalidate: 60}})
+    const req = await fetch(`https://admin.scenit-russia.ru/api/products/${params.product}?populate=images`, {next: {revalidate: 60}})
     const res: Product = await req.json()
     return {
         props: {

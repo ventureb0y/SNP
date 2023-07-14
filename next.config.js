@@ -4,7 +4,7 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'admin.sport-nutrition-premium.ru',
+                hostname: 'admin.scenit-russia.ru',
                 pathname: '/uploads/**',
             },
         ],

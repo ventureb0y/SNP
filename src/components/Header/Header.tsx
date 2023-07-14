@@ -8,9 +8,9 @@ const Header = () => {
     return (
         <header className={styles.header}>
             <div className={styles.header__container}>
-                <div className={styles.header__logo}>
+                <Link href={routes.main} className={styles.header__logo}>
                     Scenit
-                </div>
+                </Link> 
                 <ul className={styles.header__nav}>
                     <li className={styles.header__nav_link}>
                         <Link href={routes.main}>Главная</Link>

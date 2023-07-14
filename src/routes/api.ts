@@ -1,4 +1,4 @@
-const main = 'https://admin.sport-nutrition-premium.ru'
+const main = 'https://admin.scenit-russia.ru'
 
 export const api = {
     signin: main + '/api/auth/local',
