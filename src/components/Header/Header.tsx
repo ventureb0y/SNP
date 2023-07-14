@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import styles from './Header.module.scss'
 import { routes } from '@/routes/routes'
-import { cookies } from 'next/headers'
-import { getMe } from '@/services/auth/getMe'
 
 const Header = () => {
     // const accessToken = await cookies().get('accessToken')?.value
@@ -11,7 +9,7 @@ const Header = () => {
         <header className={styles.header}>
             <div className={styles.header__container}>
                 <div className={styles.header__logo}>
-                    Sport Nutrition Premuim
+                    Scenit
                 </div>
                 <ul className={styles.header__nav}>
                     <li className={styles.header__nav_link}>
@@ -28,8 +26,6 @@ const Header = () => {
                     </li>
                 </ul>
                 <div className={styles.header__phone}>+ 0 (000) 000-00-00</div>
-
-
 
                 {/* {!me.error ? "" :
                 <div className={styles.header__auth}>

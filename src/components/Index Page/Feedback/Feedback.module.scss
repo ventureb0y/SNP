@@ -69,6 +69,32 @@
         ;
     }
 
+    &__checkbox {
+        @apply
+        w-1/4
+        max-2xl:w-1/3
+        max-xl:w-1/3
+        max-lg:w-1/2
+        max-md:w-3/4
+        max-sm:w-full
+        mb-4
+        ;
+        &_link {
+            @apply
+                text-indigo-500
+                border-b
+                ease-in-out duration-200
+                hover:border-indigo-500
+            ;
+        }
+    }
+
+    &__check {
+        @apply
+            mr-1
+        ;
+    }
+
     &__button {
         @apply
         max-2xl:w-1/3

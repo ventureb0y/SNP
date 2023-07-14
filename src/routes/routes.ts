@@ -7,5 +7,7 @@ export const routes = {
     signin: '/auth/signin',
     signup: '/auth/signup',
     payment: '/payment',
+    pk: '/docs/pk.pdf',
+    oferta: '/docs/oferta.pdf',
 
 }

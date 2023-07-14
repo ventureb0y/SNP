@@ -53,11 +53,30 @@
 
         &__copyright {
             @apply
+            max-sm:row-start-3
+            block
+            ;
+        }
+
+        &__pk {
+            @apply
+            block
+            w-fit
+            ease-in-out duration-200
+            hover:text-indigo-500
+            cursor-pointer;
+            ;
+        }
+
+        &__data {
+            @apply
             row-span-1
             col-start-1
             max-sm:row-start-3
             max-sm:text-center
+            max-sm:items-center
             max-sm:mt-4
+            flex flex-col
             ;
         }
 }

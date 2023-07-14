@@ -63,6 +63,26 @@
         ;
     }
 
+    &__checkbox {
+        @apply
+        mb-4
+        ;
+        &_link {
+            @apply
+                text-indigo-500
+                border-b
+                ease-in-out duration-200
+                hover:border-indigo-500
+            ;
+        }
+    }
+
+    &__check {
+        @apply
+            mr-1
+        ;
+    }
+
     &__button {
         @apply
         w-full

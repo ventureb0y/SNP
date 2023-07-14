@@ -12,4 +12,7 @@ export const api = {
     getProductTypes: main + '/api/product-types',
     getProducts: main + '/api/products',
     getImage: (url: string) => {return main + url},
+
+    getOferta: main + '/uploads/Dogovor_oferty_a5ba99afa5.pdf',
+    getPolicy: main + '/uploads/Politika_v_otnoshenii_obrabotki_personalnyh_dannyh_39793fba55.pdf',
 }

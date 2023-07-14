@@ -4,6 +4,8 @@ import Footer from '@/components/Footer/Footer'
 import { ImArrowRight2 } from 'react-icons/im'
 import useDeliveryStore from '@/store/cart/deliveryStore'
 import useCartStore from '@/store/cart/cartStore'
+import Link from 'next/dist/client/link'
+import { api } from '@/routes/api'
 
 const Payment = () => {
     const sendData = (e) => {
@@ -49,6 +51,10 @@ const Payment = () => {
                             <input name='email' required className={styles.payment__input} type="email" placeholder='EMAIL'/>
                             <input name='phone' required className={styles.payment__input} type="text" placeholder='НОМЕР ТЕЛЕФОНА'/>
                             {deliveryType !== 'Самовывоз' && <input name='address' required className={styles.payment__input} type="text" placeholder='АДРЕС ДОСТАВКИ ИЛИ ПУНКТА ВЫДАЧИ'/>}
+                            <div className={styles.payment__checkbox}>
+                                <input required name='check' type="checkbox" className={styles.payment__check}/>
+                                <label htmlFor="check">Я согласен(на) с <Link className={styles.payment__checkbox_link} target='_blank' href={api.getPolicy}>условиями обработки</Link> персональных данных</label>
+                            </div>
                             <button type='submit' className={styles.payment__button}>ОТПРАВИТЬ
                                 <ImArrowRight2 className={styles.payment__button_icon}/>
                             </button>

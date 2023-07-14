@@ -3,6 +3,8 @@ import styles from './Feedback.module.scss'
 import FormData from 'form-data'
 import Mailgun from 'mailgun.js'
 import { email } from '@/config/email.adresses'
+import { api } from '@/routes/api'
+import Link from 'next/dist/client/link'
 
 const sendData = (e) => {
     e.preventDefault()
@@ -36,11 +38,15 @@ const Feedback = ({feedback_title, feedback_description}: {feedback_title: strin
             <form onSubmit={(e) => sendData(e)} className={styles.feedback__container}>
                 <h4 className={styles.feedback__title}>{feedback_title}</h4>
                 <span className={styles.feedback__text}>{feedback_description}</span>
-                <input name='name' placeholder='ИМЯ' type="text" className={styles.feedback__input}/>
-                <input name='phone' placeholder='НОМЕР ТЕЛЕФОНА' type="phone" className={styles.feedback__input}/>
-                <input name='email' placeholder='E-MAIL' type="email" className={styles.feedback__input}/>
-                <input name='connect' placeholder='ПРЕДПОЧТИТЕЛЬНЫЙ ВИД СВЯЗИ' type="text" className={styles.feedback__input}/>
-                <input name='issue' placeholder='ОПИШИТЕ СУТЬ ВОПРОСА' type="text" className={styles.feedback__input}/>
+                <input required name='name' placeholder='ИМЯ' type="text" className={styles.feedback__input}/>
+                <input required name='phone' placeholder='НОМЕР ТЕЛЕФОНА' type="phone" className={styles.feedback__input}/>
+                <input required name='email' placeholder='E-MAIL' type="email" className={styles.feedback__input}/>
+                <input required name='connect' placeholder='ПРЕДПОЧТИТЕЛЬНЫЙ ВИД СВЯЗИ' type="text" className={styles.feedback__input}/>
+                <input required name='issue' placeholder='ОПИШИТЕ СУТЬ ВОПРОСА' type="text" className={styles.feedback__input}/>
+                <div className={styles.feedback__checkbox}>
+                    <input required name='check' type="checkbox" className={styles.feedback__check}/>
+                    <label htmlFor="check">Я согласен(на) с <Link className={styles.feedback__checkbox_link} target='_blank' href={api.getPolicy}>условиями обработки</Link> персональных данных</label>
+                </div>
                 <button type='submit' className={styles.feedback__button}>ОТПРАВИТЬ
                     <ImArrowRight2 className={styles.feedback__button_icon}/>
                 </button>
